@@ -12,15 +12,10 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class EthGenerator {
-
-
-
     public static void main(String[] args) throws IOException {
-
-        long time = System.currentTimeMillis();
+        System.out.println("Main thread started...");
         ConnectToNodes connect = new ConnectToNodes();
-        connect.run();
-        time = System.nanoTime() - time;
-        System.out.printf("Elapsed %,9.3f s\n", time / 1_000_000_000_000_000.0);
+        connect.start();
+
     }
 }
