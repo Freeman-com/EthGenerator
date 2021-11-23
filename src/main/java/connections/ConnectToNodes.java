@@ -20,9 +20,11 @@ public class ConnectToNodes extends Thread {
     private final static int RRS = 10;
 
     public void run() {
+
         System.out.println("Connecting to Ethereum ...");
 
         Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/v3/cd601df89a60461f9d744777d13769a5"));
+
         System.out.println("Successfully connected to Ethereum");
         System.out.println("Load your MONEY: ");
 
@@ -31,13 +33,14 @@ public class ConnectToNodes extends Thread {
 
         for (int j = 0; j < RRS; j++) {
             for (int i = 0; i < RRS; i++) {
-                set.add(pr.ethKeyGenerator(64));
+                set.add(pr.ethPrivateKeyGenerator(64));
             }
             for (Object o : set) {
                 Credentials credentials = Credentials.create(o.toString());
                 EthGetBalance balance = null;
                 try {
-                    balance = web3.ethGetBalance(credentials.getAddress().toLowerCase(Locale.ROOT), DefaultBlockParameterName.LATEST).send();
+                    balance = web3.ethGetBalance(credentials.getAddress().toLowerCase(Locale.ROOT),
+                            DefaultBlockParameterName.LATEST).send();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
