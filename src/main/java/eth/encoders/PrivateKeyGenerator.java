@@ -1,4 +1,4 @@
-package encoders;
+package eth.encoders;
 
 import java.util.Random;
 

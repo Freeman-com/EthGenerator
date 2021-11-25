@@ -1,6 +1,6 @@
-package connections;
+package eth.connections;
 
-import encoders.PrivateKeyGenerator;
+import eth.encoders.PrivateKeyGenerator;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
